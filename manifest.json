@@ -1,0 +1,33 @@
+{
+  "id": "./",
+  "name": "Moon's Mensajero",
+  "short_name": "Mensajero",
+  "description": "Portal de entregas del mensajero de Moon's Store",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#070d1a",
+  "theme_color": "#0a285b",
+  "icons": [
+    {
+      "src": "https://lh3.googleusercontent.com/d/18D9-qbMPuJGshbnu5ID2hT5J_dg6iY4T=s192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://lh3.googleusercontent.com/d/18D9-qbMPuJGshbnu5ID2hT5J_dg6iY4T=s512",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://lh3.googleusercontent.com/d/18D9-qbMPuJGshbnu5ID2hT5J_dg6iY4T=s512",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

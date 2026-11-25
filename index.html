@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Moon's Mensajero</title>
+<meta name="theme-color" content="#0a285b">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Mensajero">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="https://lh3.googleusercontent.com/d/18D9-qbMPuJGshbnu5ID2hT5J_dg6iY4T=s192">
+<link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/d/18D9-qbMPuJGshbnu5ID2hT5J_dg6iY4T=s192">
+<style>
+  html, body { margin: 0; height: 100%; background: #070d1a; overflow: hidden; }
+  #app { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; background: #070d1a; }
+  #splash { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: radial-gradient(circle at 50% 30%, #14213b, #070d1a 70%); color: #fff; font-family: system-ui, sans-serif; transition: opacity .4s; z-index: 2; }
+  #splash img { width: 110px; height: 110px; border-radius: 50%; border: 3px solid #c9a646; background: #fff; object-fit: contain; }
+  #splash b { margin-top: 18px; font-size: 20px; letter-spacing: 1px; }
+  #splash small { margin-top: 4px; color: #c9a646; font-size: 11px; letter-spacing: 3px; }
+  #splash i { margin-top: 26px; width: 34px; height: 34px; border: 3px solid rgba(255,255,255,.15); border-top-color: #c9a646; border-radius: 50%; animation: g 0.9s linear infinite; }
+  #splash p { position: absolute; bottom: 30px; margin: 0; font-size: 12px; color: #8a96b0; text-align: center; padding: 0 20px; }
+  @keyframes g { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<div id="splash">
+  <img src="https://lh3.googleusercontent.com/d/18D9-qbMPuJGshbnu5ID2hT5J_dg6iY4T=s192" alt="Moon's Store">
+  <b>MOON'S STORE</b>
+  <small>PORTAL DEL MENSAJERO</small>
+  <i></i>
+  <p id="msg"></p>
+</div>
+<iframe id="app" title="Portal del mensajero" allow="clipboard-write"
+  src="https://script.google.com/macros/s/AKfycbyfpBSHvoDoy1Sf_tutNDzCzI78mQ1Vo-ixWRFUbLguP6TnR5c5RNVdPTNwVKZdYfGd/exec?p=men"></iframe>
+<script>
+  var app = document.getElementById('app'), splash = document.getElementById('splash');
+  function quitar() { splash.style.opacity = 0; setTimeout(function () { splash.style.display = 'none'; }, 450); }
+  app.addEventListener('load', function () { setTimeout(quitar, 600); });
+  setTimeout(function () {
+    if (splash.style.display !== 'none') document.getElementById('msg').textContent = 'Cargando… si tarda mucho, revisa tu conexión a internet.';
+  }, 8000);
+  if (!navigator.onLine) document.getElementById('msg').textContent = 'Sin conexión a internet. Conéctate y vuelve a abrir la app.';
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+</script>
+</body>
+</html>
